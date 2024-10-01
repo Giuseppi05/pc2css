@@ -1,0 +1,149 @@
+$primary-color: #3498db;
+$secondary-color: #2c3e50;
+$text-color: #333;
+$background-color: #ecf0f1;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: $text-color;
+  background-color: $background-color;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  background-color: $primary-color;
+  padding: 1rem;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    .logo-nav{
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      img{
+        max-width: 5rem;
+      }
+    }
+    ul {
+      @include flex-center;
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        margin: 0 1rem;
+
+        a {
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: $secondary-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  $img-width: 500px;
+
+  .galery {
+    display: grid;
+    grid-template-columns: repeat(2, $img-width);
+    grid-gap: 10px;
+    justify-content: center; 
+    grid-template-rows: auto;
+    
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    }
+  }
+
+  section {
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .imagen{
+      display: flex;
+      justify-content: center;
+
+      img{
+        width: 50%;
+        height: auto;
+      }
+
+    }
+
+    h1, h2 {
+      color: $primary-color;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    img, iframe {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    ul{
+      margin-bottom: 1rem;
+    }
+
+    .videos{
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      height: 300px;
+
+      iframe{
+        width: 40%;
+        height: auto;
+      }
+    }
+  }
+}
+
+footer {
+  background-color: $secondary-color;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  header {
+    nav {
+      ul {
+        flex-direction: column;
+
+        li {
+          margin: 0.5rem 0;
+        }
+      }
+    }
+  }
+}
